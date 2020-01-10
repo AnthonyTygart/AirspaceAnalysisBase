@@ -1,4 +1,5 @@
-import Point from './Point';
+import Point from './Point.js';
+import Line from './Line.js';
 
 export default class Obstruction extends Point{
   
@@ -8,11 +9,12 @@ export default class Obstruction extends Point{
       this.surfaceZ = '';
       this.station = '';
       this.offset = '';
-      this.offsetSide = '';
+      this.offsetDirection = '';
     }
 
     setOffset(line){
-      offset = super.getShortestDistToLine(line);
+      this.offset = super.getShortestDistToLine(line);
+      this.offset = super.offsetSideFromLine(line);
     }
-  
+    
   }
