@@ -3,18 +3,9 @@ import Line from './Line.js';
 
 export default class Obstruction extends Point{
   
-    constructor(id,y,x,z,description){
-      super(id,y,x,z,description);
+    constructor(id,y,x,z,description,station,offset,offsetSide){
+      super(id,y,x,z,description,station,offset,offsetSide);
       this.penetrationHeight = '';
       this.surfaceZ = '';
-      this.station = '';
-      this.offset = '';
-      this.offsetDirection = '';
-    }
-
-    setOffset(line){
-      this.offset = super.getShortestDistToLine(line);
-      this.offset = super.offsetSideFromLine(line);
-    }
-    
+    }    
   }

@@ -1,7 +1,7 @@
 import Point from './Classes/Point.js';
 import ObstructionPoint from './Classes/Obstruction.js';
 import Line from './Classes/Line.js';
-// import './index.css';
+import PointLineFunctions from './Classes/PointLineFunctions.js';
 
 let startNorthing = '';
 let startEasting = '';
@@ -24,24 +24,15 @@ document.getElementById("Btn").onclick = () => {
     rwEnd = new Point(2,endNorthing,endEasting,0,'RwEndPoint');
     const otherPoint = new ObstructionPoint(3,otherNorthing,otherEasting,0,'tree1');
     
+    PointLineFunctions.Get
     
     //Create runway Ali
     let ali = new Line(rwStart,rwEnd);
 
-    otherPoint.setOffset(ali);
+    otherPoint.offset = PointLineFunctions.getShortestDistToLine(otherPoint,ali);
+    otherPoint.offsetSide = PointLineFunctions.getOffsetSideFromLine(ali);
     console.log(otherPoint.offset);
-    console.log(otherPoint.offsetSideFromLine(ali));
-
-    console.log(otherPoint.distToSegment(ali));
-    
-    //create New Ali by extending rw Ali
-    //let newALI = ali.extend(2000,-ali.getLength());
-}
-
-function ShortestDistToLine(point,startPoint,endPoint){
-    let lineLength = GetLineLength(startPoint,endPoint);
-
-    if(lineLength === 0) return lineLength;
+    console.log(otherPoint.offsetSide);
 }
 
 
