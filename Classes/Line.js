@@ -1,4 +1,5 @@
 import Point from './Point.js';
+import PointLineFunctions from './PointLineFunctions.js';
 
 export default class Line{
     constructor(startPoint, endPoint){
@@ -31,6 +32,6 @@ export default class Line{
         return new Line(newStartPoint, newEndPoint);
     }
     getLength(){
-        this.startPoint.get2DdistToPoint(this.endPoint);
+        return PointLineFunctions.get2DdistToPoint(this.startPoint,this.endPoint);
     }
 }
