@@ -30,10 +30,7 @@ export default class Line{
         //Return New Line
         return new Line(newStartPoint, newEndPoint);
     }
-
     getLength(){
-        let dx = (this.endPoint.x - this.startPoint.x)
-        let dy = (this.endPoint.y - this.startPoint.y)
-        return Math.sqrt((dx*dx) + (dy*dy))
+        this.startPoint.get2DdistToPoint(this.endPoint);
     }
 }

@@ -12,27 +12,26 @@ let rwEnd = '';
 
 document.getElementById("Btn").onclick = () => {
     //Get Input
-    startNorthing = document.getElementById('rw-start-y-input').value;
-    startEasting = document.getElementById('rw-start-x-input').value;
-    endNorthing = document.getElementById('rw-end-y-input').value;
-    endEasting = document.getElementById('rw-end-x-input').value;
-    let otherNorthing = document.getElementById('other-y-input').value;
-    let otherEasting = document.getElementById('other-x-input').value;
+    startNorthing = Number(document.getElementById('rw-start-y-input').value);
+    startEasting = Number(document.getElementById('rw-start-x-input').value);
+    endNorthing = Number(document.getElementById('rw-end-y-input').value);
+    endEasting = Number(document.getElementById('rw-end-x-input').value);
+    let otherNorthing = Number(document.getElementById('other-y-input').value);
+    let otherEasting = Number(document.getElementById('other-x-input').value);
 
     //Create RW End Points
     rwStart = new Point(1,startNorthing,startEasting,0,'RwStart');
     rwEnd = new Point(2,endNorthing,endEasting,0,'RwEndPoint');
-    const otherPoint = new ObstructionPoint(3,otherNorthing,otherEasting,0,'tree1');
-    
-    PointLineFunctions.Get
-    
-    //Create runway Ali
-    let ali = new Line(rwStart,rwEnd);
+    const ali = new Line(rwStart,rwEnd);
 
-    otherPoint.offset = PointLineFunctions.getShortestDistToLine(otherPoint,ali);
-    otherPoint.offsetSide = PointLineFunctions.getOffsetSideFromLine(ali);
-    console.log(otherPoint.offset);
-    console.log(otherPoint.offsetSide);
+    const otherPoint = new ObstructionPoint(3,otherNorthing,otherEasting,0,'tree1');
+    // otherPoint.pointOnAli = PointLineFunctions.getPerpendicularPointOnLine(otherPoint,ali);
+    // otherPoint.offset = PointLineFunctions.getShortestDistToLine(otherPoint);
+
+    const newEngineer = new Engineer('bob',true,true);
+    console.log(JSON.stringify(newEngineer));
+
+    console.log(PointLineFunctions.Get)
 }
 
 
