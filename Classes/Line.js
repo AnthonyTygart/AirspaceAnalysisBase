@@ -20,13 +20,15 @@ export default class Line{
         //Determine new Point Coordinates
         const newStartX = (Number(this.startPoint.x)) + (startExtension*dx);
         const newStartY = (Number(this.startPoint.y)) + (startExtension*dy);
+        const newStartZ = this.startPoint.z;
 
         const newEndX = (Number(this.endPoint.x)) + (endExtension*dx);
         const newEndY = (Number(this.endPoint.y)) + (endExtension*dy);
+        const newEndZ = this.startPoint.z;
 
         //Create New Points
-        const newStartPoint = new Point(10,newStartY,newStartX,'p1');
-        const newEndPoint = new Point(11,newEndY,newEndX, 'p2');
+        const newStartPoint = new Point(10,newStartY,newStartX,newStartZ,'p1');
+        const newEndPoint = new Point(11,newEndY,newEndX,newEndZ,'p2');
 
         //Return New Line
         return new Line(newStartPoint, newEndPoint);

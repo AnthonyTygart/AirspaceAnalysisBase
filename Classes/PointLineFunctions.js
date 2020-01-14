@@ -94,4 +94,10 @@ export default class PointLineFunctions{
         }
     }
 
+    static setStationOffsetAllPoints(points,line){
+        for (let i = 0; i < points.length; i++){
+            points[i].setStationAndOffset(line);
+        }
+    }
+
 }

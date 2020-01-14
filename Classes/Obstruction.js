@@ -5,12 +5,9 @@ export default class Obstruction extends Point{
   
     constructor(id,y,x,z,description){
       super(id,y,x,z,description);
-      
       this.station = '';
       this.offset = '';
-      this.offsetSide = '';
-      this.penetrationHeight = '';
       this.surfaceZ = '';
-      this.pointOnAli ='';
-    }    
+      this.penetrationHeight = '';
+    }
   }
